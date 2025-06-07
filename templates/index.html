@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Saludo en Blockchain</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔗 Sistema de Saludo en Blockchain</h1>
+            <p class="subtitle">Blockchain Django Implementation</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Sección del Mensaje -->
+            <div class="card">
+                <h2>📨 Mensaje Actual</h2>
+                <div class="mensaje-container">
+                    <p id="mensaje" class="mensaje-texto">{{ mensaje_actual }}</p>
+                    <small class="contract-address">Contrato: {{ contract_info.address }}</small>
+                </div>
+            </div>
+
+            <!-- Sección para cambiar mensaje -->
+            <div class="card">
+                <h2>✏️ Cambiar Mensaje</h2>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="nuevoMensaje" 
+                        placeholder="Escribe tu nuevo saludo aquí..." 
+                        maxlength="280"
+                        class="mensaje-input"
+                    >
+                    <button onclick="cambiarMensaje()" class="btn-primary" id="btnCambiar">
+                        🚀 Actualizar Mensaje
+                    </button>
+                </div>
+                <div class="char-counter">
+                    <span id="charCount">0</span>/280 caracteres
+                </div>
+            </div>
+
+            <!-- Información de la Blockchain -->
+            <div class="card">
+                <h2>⛓️ Estado de la Blockchain</h2>
+                <div class="blockchain-info">
+                    <div class="info-item">
+                        <span class="label">Bloques totales:</span>
+                        <span id="blockCount">{{ blockchain_length }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Estado:</span>
+                        <span id="blockchainStatus" class="status-valid">✅ Válida</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Último bloque:</span>
+                        <span id="lastBlockHash" class="hash-text">Cargando...</span>
+                    </div>
+                </div>
+                <button onclick="actualizarInfoBlockchain()" class="btn-secondary">
+                    🔄 Actualizar Info
+                </button>
+            </div>
+
+            <!-- Historial de Transacciones -->
+            <div class="card">
+                <h2>📋 Historial de Transacciones</h2>
+                <div id="transactionHistory" class="transaction-list">
+                    <p class="loading">Cargando historial...</p>
+                </div>
+                <button onclick="cargarHistorial()" class="btn-secondary">
+                    🔄 Recargar Historial
+                </button>
+            </div>
+
+            <!-- Eventos del Contrato -->
+            <div class="card">
+                <h2>📡 Eventos Recientes</h2>
+                <div id="contractEvents" class="events-list">
+                    <p class="loading">Cargando eventos...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div id="notifications" class="notifications"></div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Procesando transacción...</p>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

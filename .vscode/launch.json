@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Django",
+            "type": "debugpy", //esto se pone así ahora porque es una nueva versión de debugpy en vez de "python"
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "runserver",
+                "127.0.0.1:8000"
+            ],
+            "django": true,
+            "console": "integratedTerminal"
+        }
+    ]
+}

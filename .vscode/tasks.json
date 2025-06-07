@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Django: Ejecutar servidor",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "runserver"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Django: Migraciones",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "migrate"],
+            "group": "build"
+        },
+        {
+            "label": "Django: Crear migraciones",
+            "type": "shell",
+            "command": "python",
+            "args": ["manage.py", "makemigrations"],
+            "group": "build"
+        }
+    ]
+}
